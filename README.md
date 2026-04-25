@@ -1,19 +1,21 @@
 # CreditWise Loan Approval System
 
-End-to-end machine learning project that predicts whether a loan application should be approved (`1`) or rejected (`0`) before final human verification.
+Machine learning project for loan pre-screening before final human verification.
+
+Given applicant financial and profile details, the model predicts whether a loan should be approved (`1`) or rejected (`0`) and provides risk-focused insights on the dashboard.
 
 ## Problem Statement
 
-SecureTrust Bank handles high-volume loan applications across urban and rural India. The previous manual screening process was slow and inconsistent, causing:
+In the given business scenario (SecureTrust Bank), manual loan verification leads to two common issues:
 
-- false rejections of creditworthy customers (business loss),
-- false approvals of risky applicants (financial loss).
+- some good applicants get rejected,
+- some high-risk applicants get approved.
 
-This project provides a faster and more consistent pre-screening system built with Python, scikit-learn, FastAPI, and Streamlit.
+The goal of this project is to make that first-level screening faster and more consistent using machine learning.
 
 ## Key Results
 
-The tuned model currently reports the following metrics on the sample project dataset:
+On the current sample dataset in this repository, the tuned model gives:
 
 - Accuracy: `1.00`
 - Precision: `1.00`
@@ -27,7 +29,7 @@ Best hyperparameters:
 - `model__min_samples_split = 2`
 - `model__n_estimators = 200`
 
-> Note: these scores are from a small sample dataset included for demonstration; production performance should be validated on larger real-world data.
+Important note: these scores are from a small demo dataset, so they should not be treated as production-grade performance.
 
 ## Project Structure
 
@@ -64,7 +66,7 @@ creditwise-loan-approval-ml/
 
 `Applicant_ID`, `Applicant_Income`, `Coapplicant_Income`, `Employment_Status`, `Age`, `Marital_Status`, `Dependents`, `Credit_Score`, `Existing_Loans`, `DTI_Ratio`, `Savings`, `Collateral_Value`, `Loan_Amount`, `Loan_Term`, `Loan_Purpose`, `Property_Area`, `Education_Level`, `Gender`, `Employer_Category`, `Loan_Approved`.
 
-## Tech Stack
+## Tech Stack Used
 
 - Python
 - pandas, numpy
@@ -73,14 +75,15 @@ creditwise-loan-approval-ml/
 - Streamlit
 - Jupyter Notebook
 
-## ML Workflow
+## What This Repo Contains
 
-1. Data loading and validation
-2. Preprocessing (imputation, encoding, scaling)
-3. Baseline model training
-4. Hyperparameter tuning
-5. Fairness diagnostics
-6. API + dashboard inference
+- `src/preprocess.py` - data split and preprocessing setup
+- `src/train_baseline.py` - baseline models + comparison report
+- `src/tune_model.py` - hyperparameter tuning + best model export
+- `app.py` - FastAPI inference endpoints
+- `streamlit_app.py` - frontend dashboard for interactive prediction
+- `notebooks/` - EDA and fairness/explainability notebooks
+- `reports/` - saved model metrics and fairness outputs
 
 ## Run Locally
 
@@ -93,13 +96,13 @@ python -m src.train_baseline
 python -m src.tune_model
 ```
 
-Start backend API:
+Run API:
 
 ```bash
 uvicorn app:app --reload
 ```
 
-Start frontend dashboard:
+Run dashboard:
 
 ```bash
 streamlit run streamlit_app.py
@@ -108,38 +111,42 @@ streamlit run streamlit_app.py
 ## API Reference
 
 - `GET /health` - health check and model availability
-- `POST /predict` - returns:
-  - `prediction` (`0` or `1`)
-  - `decision` (`Approved` or `Rejected`)
-  - `approval_probability`
+- `POST /predict` - returns `prediction`, `decision`, and `approval_probability`
 
 ## Dashboard Features
 
-- Minimal loan application form UI
-- Decision and probability output
-- Risk accelerator visualization (High -> Medium -> Low)
-- Eligibility flags and actionable suggestions
-- Factor influence and score charts
+- clean form-based input for applicant details
+- prediction summary (approval/rejection + probability)
+- risk accelerator bar (High -> Medium -> Low)
+- rule-based eligibility flags
+- actionable suggestions based on risk signals
+- factor influence table + score chart
 
 ## Fairness and Explainability
 
 `notebooks/02_explainability_bias.ipynb` and `reports/fairness_report.json` include:
 
-- grouped approval-rate checks,
-- grouped TPR/FPR checks,
-- feature influence review.
+- group-level approval checks
+- group-level TPR/FPR checks
+- model behavior summary by selected segments
 
 ## Screenshots
 
-Add your UI screenshots in `assets/` and link them here:
+You can add UI screenshots in `assets/` and link them below:
 
 - `assets/dashboard-form.png`
 - `assets/dashboard-result.png`
 - `assets/risk-accelerator.png`
 
-## Roadmap
+## Limitations
 
-- Integrate production dataset and validation pipeline
-- Add SHAP-based local explanations
-- Add CI/CD and container deployment
-- Add model monitoring and drift alerts
+- small demo dataset (not a real production banking dataset)
+- no authentication layer on API/dashboard
+- no CI pipeline yet
+
+## Next Improvements
+
+- train and validate on larger real-world data
+- add SHAP for per-applicant explanation
+- add CI/CD + deployment
+- add drift/performance monitoring
