@@ -1,0 +1,27 @@
+{
+  "by_gender": [
+    {
+      "group": "Male",
+      "records": 4,
+      "approval_rate": 0.5,
+      "tpr": 1.0,
+      "fpr": 0.0
+    }
+  ],
+  "by_property_area": [
+    {
+      "group": "Rural",
+      "records": 2,
+      "approval_rate": 0.0,
+      "tpr": 0.0,
+      "fpr": 0.0
+    },
+    {
+      "group": "Urban",
+      "records": 2,
+      "approval_rate": 1.0,
+      "tpr": 1.0,
+      "fpr": 0.0
+    }
+  ]
+}
