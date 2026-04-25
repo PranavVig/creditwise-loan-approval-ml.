@@ -1,6 +1,6 @@
-# CreditWise Loan Approval System
+## 🚀 CreditWise Loan Approval System
 
-Machine learning project for loan pre-screening before final human verification.
+End-to-end machine learning system for loan pre-screening with real-time risk insights, fairness evaluation, and interactive decision support dashboard.
 
 Given applicant financial and profile details, the model predicts whether a loan should be approved (`1`) or rejected (`0`) and provides risk-focused insights on the dashboard.
 
@@ -12,6 +12,14 @@ In the given business scenario (SecureTrust Bank), manual loan verification lead
 - some high-risk applicants get approved.
 
 The goal of this project is to make that first-level screening faster and more consistent using machine learning.
+
+## Key Features
+
+- End-to-end ML pipeline (preprocessing → training → deployment)
+- Model comparison + hyperparameter tuning (GridSearchCV with cross-validation)
+- Fairness analysis across demographic groups (gender, property area)
+- FastAPI backend for real-time inference
+- Interactive Streamlit dashboard with risk insights and recommendations
 
 ## Key Results
 
