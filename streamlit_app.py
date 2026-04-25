@@ -105,6 +105,184 @@ def factor_score_map(applicant: dict) -> dict[str, float]:
     }
 
 st.set_page_config(page_title="CreditWise Loan Predictor", layout="wide")
+
+
+st.markdown("""
+<style>
+
+/* ===== MAKE ACCELERATOR BOX BLACK ===== */
+.accelerator-wrap {
+    background: #020617 !important;  /* deep black */
+    border: 1px solid #334155;
+    color: #ffffff !important;
+}
+
+/* ensure text inside is visible */
+.accelerator-labels span {
+    color: #ffffff !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+
+/* ===== CLEAN DARK BACKGROUND ===== */
+.stApp {
+    background-color: #020617;  /* deep navy black */
+}
+
+/* ===== TEXT VISIBILITY ===== */
+html, body, p, label, div, span {
+    color: #f8fafc !important;
+}
+
+/* ===== HEADINGS ===== */
+h1, h2, h3, h4 {
+    color: #f1f5f9 !important;
+}
+
+/* ===== BUTTON ===== */
+.stButton > button {
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    color: white !important;
+    border-radius: 10px;
+    font-weight: 600;
+    border: none;
+    padding: 10px;
+}
+
+/* ===== METRICS ===== */
+.stMetric {
+    background: #020617 !important;
+    border: 1px solid #334155;
+    border-radius: 12px;
+}
+
+/* ===== RESULT CARDS ===== */
+.result-card {
+    background: #020617 !important;
+    border: 1px solid #334155;
+    border-radius: 12px;
+}
+
+/* ===== ALERT TEXT FIX ===== */
+.stAlert {
+    color: black !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+st.markdown("""
+<style>
+
+/* ===== BACKGROUND ===== */
+.stApp {
+   
+    background-size: cover;
+}
+
+/* DARK OVERLAY */
+.stApp::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.85);
+    z-index: -1;
+}
+
+/* ===== TEXT VISIBILITY ===== */
+html, body, p, label, div, span {
+    color: #f1f5f9 !important;
+}
+
+/* ===== BUTTON ===== */
+.stButton > button {
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    color: white !important;
+    border-radius: 10px;
+    font-weight: 600;
+    border: none;
+    padding: 10px;
+}
+
+.stButton > button:hover {
+    transform: scale(1.03);
+}
+
+/* ===== CARDS ===== */
+.result-card, .stMetric {
+    background: rgba(30, 41, 59, 0.9);
+    border: 1px solid #475569;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+/* ===== HEADINGS ===== */
+h1, h2, h3, h4 {
+    color: #f8fafc !important;
+}
+
+/* ===== FIX ALERT TEXT ===== */
+.stAlert {
+    color: black !important;
+}
+            
+
+</style>
+""", unsafe_allow_html=True)
+st.markdown("""
+<style>
+
+/* ===== RESULT SECTION FIX ===== */
+
+/* Main result container */
+.result-card {
+    background: #020617 !important;  /* deep black */
+    color: #f8fafc !important;
+    border: 1px solid #334155;
+}
+
+/* Metrics (approval %, risk etc) */
+.stMetric {
+    background: #020617 !important;
+    color: #ffffff !important;
+    border: 1px solid #334155;
+}
+
+/* Metric labels + values */
+[data-testid="stMetricLabel"] {
+    color: #cbd5f5 !important;
+}
+
+[data-testid="stMetricValue"] {
+    color: #ffffff !important;
+}
+
+/* Tables / dataframe */
+.stDataFrame, .stTable {
+    background-color: #020617 !important;
+    color: #ffffff !important;
+}
+
+/* Bar chart container */
+canvas {
+    background-color: #020617 !important;
+}
+
+/* Subsection titles */
+h2, h3 {
+    color: #ffffff !important;
+}
+
+/* Markdown lists (flags & suggestions) */
+ul, li {
+    color: #e2e8f0 !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
 st.markdown(
     """
 <style>
@@ -357,3 +535,4 @@ if st.button("Predict Loan Decision", type="primary"):
         st.subheader("Actionable Suggestions")
         for suggestion in suggestions:
             st.markdown(f"- {suggestion}")
+
