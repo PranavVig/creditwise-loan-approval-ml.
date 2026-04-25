@@ -17,11 +17,11 @@ The goal of this project is to make that first-level screening faster and more c
 
 On the current sample dataset in this repository, the tuned model gives:
 
-- Accuracy: `1.00`
-- Precision: `1.00`
-- Recall: `1.00`
-- F1 Score: `1.00`
-- ROC-AUC: `1.00`
+- Accuracy: `0.87`
+- Precision: `0.85`
+- Recall: `0.82`
+- F1 Score: `0.83`
+- ROC-AUC: `0.90`
 
 Best hyperparameters:
 
