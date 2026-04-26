@@ -9,6 +9,7 @@ venv/
 .idea/
 .vscode/
 .ipynb_checkpoints/
-models/*.pkl
+models/*
+!models/best_model.pkl
 data/processed/*.csv
 reports/figures/

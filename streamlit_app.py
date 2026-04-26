@@ -2,6 +2,20 @@ import joblib
 import pandas as pd
 import streamlit as st
 
+st.set_page_config(
+    page_title="CreditWise Loan Predictor",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# 🔥 FORCE DARK THEME 
+st.markdown("""
+    <style>
+        :root {
+            --background-color: #020617;
+        }
+    </style>
+""", unsafe_allow_html=True)
 from src.config import MODELS_DIR
 
 
@@ -106,7 +120,140 @@ def factor_score_map(applicant: dict) -> dict[str, float]:
 
 st.set_page_config(page_title="CreditWise Loan Predictor", layout="wide")
 
+st.markdown("""
+<style>
 
+/* ===== FORCE DARK MODE ===== */
+:root {
+    color-scheme: dark;
+}
+
+/* Background */
+.stApp {
+    background-color: #020617;
+}
+
+/* Text */
+body, p, label, div, span {
+    color: #f8fafc !important;
+}
+
+/* Inputs */
+input, textarea, select {
+    background-color: #020617 !important;
+    color: #f8fafc !important;
+}
+
+/* Selectbox */
+div[data-baseweb="select"] > div {
+    background-color: #020617 !important;
+    color: #f8fafc !important;
+}
+
+/* Dropdown */
+div[data-baseweb="popover"],
+div[role="option"] {
+    background-color: #020617 !important;
+    color: #f8fafc !important;
+}
+
+div[role="option"]:hover {
+    background-color: #1e293b !important;
+}
+
+/* Cards */
+.result-card, .stMetric {
+    background: #020617 !important;
+    border: 1px solid #334155;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+
+/* ===== THEME-AWARE FIX ===== */
+
+/* LIGHT MODE */
+@media (prefers-color-scheme: light) {
+    
+    .result-card, .stMetric, .accelerator-wrap {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        border: 1px solid #e2e8f0;
+    }
+
+    .accelerator-labels span {
+        color: #1e293b !important;
+    }
+
+    h1, h2, h3, h4 {
+        color: #0f172a !important;
+    }
+
+    p, div, span, label {
+        color: #1e293b !important;
+    }
+}
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+
+    .result-card, .stMetric, .accelerator-wrap {
+        background: #020617 !important;
+        color: #f8fafc !important;
+        border: 1px solid #334155;
+    }
+
+    .accelerator-labels span {
+        color: #f1f5f9 !important;
+    }
+
+}
+
+</style>
+""", unsafe_allow_html=True)
+st.markdown("""
+<style>
+
+/* ===== FIX INPUT FIELD VISIBILITY ===== */
+
+/* Input labels */
+label {
+    color: #1e293b !important;   /* dark text */
+}
+
+/* Input boxes text */
+input, textarea {
+    color: #0f172a !important;   /* dark text */
+    background-color: #ffffff !important;
+}
+
+/* Selectbox */
+div[data-baseweb="select"] > div {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+}
+
+/* Slider text */
+.stSlider label {
+    color: #1e293b !important;
+}
+
+/* Number input */
+.stNumberInput input {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+}
+
+/* Dropdown text */
+.stSelectbox div {
+    color: #0f172a !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
 st.markdown("""
 <style>
 
@@ -367,6 +514,8 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
+
+
 st.markdown(
     """
 <div class="hero">
