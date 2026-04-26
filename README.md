@@ -138,14 +138,6 @@ streamlit run streamlit_app.py
 - group-level TPR/FPR checks
 - model behavior summary by selected segments
 
-## Screenshots
-
-You can add UI screenshots in `assets/` and link them below:
-
-- `assets/dashboard-form.png`
-- `assets/dashboard-result.png`
-- `assets/risk-accelerator.png`
-
 ## Limitations
 
 - small demo dataset (not a real production banking dataset)
